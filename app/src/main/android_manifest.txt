@@ -1,0 +1,234 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.soulgame.tgsdk"
+    android:versionCode="186"
+    android:versionName="1.8.6" >
+
+    
+
+    <application
+    android:hardwareAccelerated="true">
+        <!-- SigMob -->
+        <activity android:name="com.sigmob.sdk.base.common.AdActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize" />
+
+        <!-- SigMob -->
+        <provider
+            android:name="com.sigmob.sdk.SigmobFileProvider"
+            android:authorities="${applicationId}.sigprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/sigmob_provider_paths"/>
+        </provider>
+        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
+        <!-- TG ADX -->
+        <activity
+            android:name="com.yomob.tgsdklib.TGVideoActivity"
+            android:launchMode="singleTask"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+        <activity
+            android:name="com.yomob.tgsdklib.TGWebActivity"
+            android:launchMode="singleTask"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+        <!-- TG Interact -->
+        <activity
+            android:name="com.soulgame.sgsdk.tgsdklib.TGInteractActivity"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" />
+
+    <!-- Shenqiad -->
+    <activity
+        android:name="com.shenqi.sdk.ex.AActivity"
+        android:configChanges="keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize"
+        android:launchMode="singleInstance" />
+    <activity
+        android:name="com.shenqi.sdk.ex.VActivity"
+        android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+        android:theme="@android:style/Theme.Translucent"></activity>
+
+    <service android:name="com.shenqi.sdk.ex.DService" />
+    <receiver android:name="com.shenqi.sdk.ex.VAdReceiver">
+        <intent-filter android:priority="2147483647">
+            <action android:name="android.intent.action.PACKAGE_ADDED" />
+            <data android:scheme="package" />
+        </intent-filter>
+    </receiver>
+
+        <!-- Shenqiad -->
+        <provider
+            android:name="com.shenqi.sdk.ex.SQFileProvider"
+            android:authorities="${applicationId}.android7.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/shenqi_file_paths" />
+        </provider>
+        <!-- Guangdiantong -->
+        <service
+            android:name="com.qq.e.comm.DownloadService"
+            android:exported="false" />
+        <activity
+            android:name="com.qq.e.ads.ADActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize" />
+        <activity
+            android:name="com.qq.e.ads.PortraitADActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize" />
+        <activity
+            android:name="com.qq.e.ads.LandscapeADActivity"
+            android:screenOrientation="landscape"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize" />
+
+
+        <!-- Guangdiantong -->
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="${applicationId}.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/gdt_file_path" />
+        </provider>
+
+
+        <!-- Baidu -->
+        <activity
+            android:name="com.baidu.mobads.AppActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+            
+        <provider
+            android:name="com.baidu.mobads.openad.FileProvider"
+            android:authorities="${applicationId}.bd.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/bd_file_paths" />
+        </provider>
+
+
+        <!-- Baidu -->
+        <provider
+            android:name="com.baidu.mobads.openad.FileProvider"
+            android:authorities="${applicationId}.bd.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/bd_file_paths" />
+        </provider>
+
+        <!-- Mobvista -->
+        <activity
+            android:name="com.mintegral.msdk.activity.MTGCommonActivity"
+            android:configChanges="keyboard|orientation"
+            android:screenOrientation="portrait"
+            android:exported="true"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar">
+        </activity>
+        <activity
+            android:name="com.mintegral.msdk.reward.player.MTGRewardVideoActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+        <activity
+            android:name="com.mintegral.msdk.interstitial.view.MTGInterstitialActivity"
+            android:screenOrientation="portrait"
+            android:configChanges="orientation|screenSize"/>
+
+        <receiver android:name="com.mintegral.msdk.click.AppReceiver" >
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED" />
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver>
+        <service android:name="com.mintegral.msdk.shell.MTGService" >
+            <intent-filter>
+                <action android:name="com.mintegral.msdk.download.action" />
+            </intent-filter>
+        </service>
+
+        <!-- Mobvista -->
+        <provider
+            android:name="com.mintegral.msdk.base.utils.MTGFileProvider"
+            android:authorities="${applicationId}.mtgFileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/mtg_provider_paths" />
+        </provider>
+
+        <!-- UniPlay -->
+        <activity
+            android:name="com.uniplay.adsdk.AdActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"/>
+        <activity
+            android:name="com.uniplay.adsdk.NetworkChangeActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:theme="@android:style/Theme.Translucent"/>
+        <activity
+            android:name="com.uniplay.adsdk.InterstitialAdActivity"
+            android:configChanges="keyboard|keyboardHidden|orientation|screenSize"
+            android:theme="@android:style/Theme.Translucent" />
+
+        <receiver
+            android:name="com.uniplay.adsdk.PackageReceiver"
+            android:enabled="true">
+            <intent-filter android:priority="2147483647">
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <action android:name="android.intent.action.USER_PRESENT" />
+            </intent-filter>
+            <intent-filter android:priority="2147483647">
+                <action android:name="android.intent.action.PACKAGE_ADDED" />
+                <action android:name="android.intent.action.PACKAGE_REPLACED" />
+                <action android:name="android.intent.action.PACKAGE_REMOVED" />
+
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver>
+
+<service android:name="com.uniplay.adsdk.gdService"/>
+        <!-- UniPlay -->
+        <provider
+            android:name="com.uniplay.adsdk.UniPlayFileProvider"
+            android:authorities="${applicationId}.uniplay.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/uniplay_file_path" />
+        </provider>
+
+        <!-- OneWay -->
+        <activity
+            android:name="mobi.oneway.sdk.AdShowActivity"
+            android:configChanges="fontScale|keyboard|keyboardHidden|locale|mnc|mcc|navigation|orientation|screenLayout|screenSize|smallestScreenSize|uiMode|touchscreen"
+            android:hardwareAccelerated="true"
+            android:launchMode="singleTask"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+
+
+        <!-- OneWay -->
+        <provider
+            android:name="mobi.oneway.sdk.common.OWProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/ow_file_paths" />
+        </provider>
+
+        <provider
+            android:name="com.liulishuo.okdownload.OkDownloadProvider"
+            android:authorities="${applicationId}.com.liulishuo.okdownload"
+            android:exported="false" />
+
+    </application>
+</manifest>
