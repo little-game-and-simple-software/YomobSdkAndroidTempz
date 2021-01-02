@@ -5,7 +5,7 @@
 
     <application
         android:allowBackup="true"
-        android:label="TGSDK Jar测试"
+        android:label="TGSDK"
 
         android:resizeableActivity="true">
 
@@ -19,94 +19,19 @@
             </intent-filter>
         </activity>
 
-        <meta-data
-          android:name="android.max_aspect"
-          android:value="4.0"/>
-      
+       
 
         <!-- SigMob -->
         <provider
             android:name="com.sigmob.sdk.SigmobFileProvider"
-            android:authorities="test.tgsdk.jar.sigprovider"
+            android:authorities="${}.sigprovider"
             android:exported="false"
             android:grantUriPermissions="true">
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/sigmob_provider_paths"/>
         </provider>
-        <!-- Shenqiad -->
-        <provider
-            android:name="com.shenqi.sdk.ex.SQFileProvider"
-            android:authorities="test.tgsdk.jar.android7.fileprovider"
-            android:exported="false"
-            android:grantUriPermissions="true">
-            <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/shenqi_file_paths" />
-        </provider>
-        <!-- Guangdiantong -->
-        <provider
-            android:name="android.support.v4.content.FileProvider"
-            android:authorities="test.tgsdk.jar.fileprovider"
-            android:exported="false"
-            android:grantUriPermissions="true">
-            <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/gdt_file_path" />
-        </provider>
-
-
-        <!-- Baidu -->
-        <provider
-            android:name="com.baidu.mobads.openad.FileProvider"
-            android:authorities="test.tgsdk.jar.bd.provider"
-            android:exported="false"
-            android:grantUriPermissions="true">
-            <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/bd_file_paths" />
-        </provider>
-
-        <!-- Mobvista -->
-        <provider
-            android:name="com.mintegral.msdk.base.utils.MTGFileProvider"
-            android:authorities="test.tgsdk.jar.mtgFileProvider"
-            android:exported="false"
-            android:grantUriPermissions="true">
-            <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/mtg_provider_paths" />
-        </provider>
-
-        <!-- UniPlay -->
-        <provider
-            android:name="com.uniplay.adsdk.UniPlayFileProvider"
-            android:authorities="test.tgsdk.jar.uniplay.fileprovider"
-            android:exported="false"
-            android:grantUriPermissions="true">
-            <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/uniplay_file_path" />
-        </provider>
-
-       
         
-
-        <!-- OneWay -->
-        <provider
-            android:name="mobi.oneway.sdk.common.OWProvider"
-            android:authorities="test.tgsdk.jar.provider"
-            android:exported="false"
-            android:grantUriPermissions="true">
-            <meta-data
-                android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/ow_file_paths" />
-        </provider>
-
-        <provider
-            android:name="com.liulishuo.okdownload.OkDownloadProvider"
-            android:authorities="test.tgsdk.jar.com.liulishuo.okdownload"
-            android:exported="false" />
     </application>
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />

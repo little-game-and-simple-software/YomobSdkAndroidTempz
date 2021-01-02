@@ -56,6 +56,7 @@ public class MainActivity extends Activity {
          setContentView(R.layout.activity_main);
          stateView=findViewById(R.id.state);
 		Button i= findViewById(R.id.init);
+        TGSDK.setDebugModel(true);
         TGSDK.initialize(this,appid,null);
         TGSDK.preloadAd(this);
        //TGSDK.setADListener(new );
@@ -75,8 +76,7 @@ public class MainActivity extends Activity {
                   boolean could=  TGSDK.couldShowAd(sceneId);
                   stateView.setText("状态"+could);
                   if(could)
-                   {
-                      
+                  {
                        TGSDK.showTestView(MainActivity.this,sceneId);
                    }
 				}
